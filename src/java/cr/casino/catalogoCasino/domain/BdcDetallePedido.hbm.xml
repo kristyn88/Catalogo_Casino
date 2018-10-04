@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/09/2018 07:56:16 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cr.casino.catalogoCasino.domain.BdcDetallePedido" table="bdc_detalle_pedido" catalog="bdc" optimistic-lock="version">
+        <composite-id name="id" class="cr.casino.catalogoCasino.domain.BdcDetallePedidoId">
+            <key-property name="pedido" type="string">
+                <column name="pedido" length="245" />
+            </key-property>
+            <key-property name="producto" type="string">
+                <column name="producto" length="245" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="bdcPedido" class="cr.casino.catalogoCasino.domain.BdcPedido" update="false" insert="false" fetch="select" lazy="false">
+            <column name="pedido" length="245" />
+        </many-to-one>
+        <many-to-one name="bdcProducto" class="cr.casino.catalogoCasino.domain.BdcProducto" update="false" insert="false" fetch="select" lazy="false">
+            <column name="producto" length="245" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
