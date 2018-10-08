@@ -11,7 +11,7 @@
             </generator>
         </id>
         <one-to-one name="bdcProducto" class="cr.casino.catalogoCasino.domain.BdcProducto" constrained="true" lazy="false"></one-to-one>
-        <property name="imagen" type="binary">
+        <property name="imagen" type="string">
             <column name="imagen" />
         </property>
     </class>

@@ -11,7 +11,7 @@ public class BdcImgProducto  implements java.io.Serializable {
 
      private String producto;
      private BdcProducto bdcProducto;
-     private byte[] imagen;
+     private String imagen;
 
     public BdcImgProducto() {
     }
@@ -20,7 +20,7 @@ public class BdcImgProducto  implements java.io.Serializable {
     public BdcImgProducto(BdcProducto bdcProducto) {
         this.bdcProducto = bdcProducto;
     }
-    public BdcImgProducto(BdcProducto bdcProducto, byte[] imagen) {
+    public BdcImgProducto(BdcProducto bdcProducto, String imagen) {
        this.bdcProducto = bdcProducto;
        this.imagen = imagen;
     }
@@ -39,11 +39,11 @@ public class BdcImgProducto  implements java.io.Serializable {
     public void setBdcProducto(BdcProducto bdcProducto) {
         this.bdcProducto = bdcProducto;
     }
-    public byte[] getImagen() {
+    public String getImagen() {
         return this.imagen;
     }
     
-    public void setImagen(byte[] imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
 

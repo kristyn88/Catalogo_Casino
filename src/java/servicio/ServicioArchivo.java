@@ -1,6 +1,8 @@
 package servicio;
 
+import cr.casino.catalogoCasino.bl.impl.BdcImgProductoBL;
 import cr.casino.catalogoCasino.bl.impl.BdcProductoBL;
+import cr.casino.catalogoCasino.domain.BdcImgProducto;
 import cr.casino.catalogoCasino.domain.BdcProducto;
 import java.io.File;
 import java.io.IOException;
@@ -71,6 +73,7 @@ public class ServicioArchivo extends HttpServlet {
                 BdcProducto nuevo = null;
                 BdcProductoBL pBL = new BdcProductoBL();
                 nuevo = pBL.findById(v);
+                String rutaArchivo=null;
                 if (formItems != null && formItems.size() > 0) {
                     for (FileItem item : formItems) {
                         if (!item.isFormField()) {
@@ -89,7 +92,7 @@ public class ServicioArchivo extends HttpServlet {
                             // el archivo o, incluso, utilizar un sistema de directorios
                             // más complejo.
                             if (nuevo != null) {
-                                String rutaArchivo = rutaDescarga + File.separator + nombreArchivo;
+                                rutaArchivo = rutaDescarga + File.separator + nombreArchivo;
                                 System.out.printf("Guardando archivo en: '%s'..%n", rutaArchivo);
                                 File archivo = new File(rutaArchivo);
                                 item.write(archivo);
@@ -108,6 +111,10 @@ public class ServicioArchivo extends HttpServlet {
                             if (nuevo != null) {
                                 request.setAttribute("mensaje2",
                                         String.format("El archivo '%s' fue cargado con éxito.", valor));
+                                
+                                BdcImgProductoBL imgC = new BdcImgProductoBL();
+                                BdcImgProducto img = new BdcImgProducto(nuevo, rutaArchivo);
+                                imgC.save(img);
                             } else {
                                 request.setAttribute("mensaje2",
                                         String.format("EL codigo '%s' no corresponde a un producto.", valor));
