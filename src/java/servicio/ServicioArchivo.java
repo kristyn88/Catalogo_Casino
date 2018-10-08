@@ -124,7 +124,7 @@ public class ServicioArchivo extends HttpServlet {
         // de la petición y la respuesta.
         // El atributo 'mensaje' contiene cualquier mensaje generado desde el Servlet.
         
-        getServletContext().getRequestDispatcher("/resultados.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/Imagen_Producto.jsp").forward(request, response);
     }
 
     @Override

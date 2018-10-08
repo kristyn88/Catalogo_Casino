@@ -27,7 +27,13 @@ and open the template in the editor.
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 
-
+        <style>
+          .thumb {
+            height: 300px;
+            border: 1px solid #000;
+            margin: 10px 5px 0 0;
+          }
+        </style>
     </head>
     <body>
         <header>
@@ -62,31 +68,34 @@ and open the template in the editor.
         <div class="container">
             <img src="img/índice.png" class="img-fluid" alt="Responsive image"/>
         </div>
-         <div id="contents">
-                <form id="form1" action="ServicioArchivo" method="POST" enctype="multipart/form-data">
-                    <table class="tablaFormulario">
-                        <tr>
-                            <td>Archivo:&nbsp;</td>
-                            <td>
-                                <input type="file" id="archivo" name="archivo" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Código del Producto:&nbsp;</td>
-                            <td>
-                                <input type="text" id="observaciones" name="observaciones"
-                                       size="30" placeholder="Digite aquí el código del producto" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <button type="submit">Enviar</button>
-                            </td>
-                        </tr>
-                    </table>
-                </form>
-            </div>
+        <div id="contents">
+            <form id="form1" action="ServicioArchivo" method="POST" enctype="multipart/form-data">
+                <table class="tablaFormulario">
+                    <tr>
+                        <td>Archivo:&nbsp;</td>
+                        <td>
+                            <input type="file" id="files" name="files[]" onchange="readURL();" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Código del Producto:&nbsp;</td>
+                        <td>
+                            <input type="text" id="observaciones" name="observaciones"
+                                   size="30" placeholder="Digite aquí el código del producto" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit">Enviar</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <br />
+            <output id="list"></output>
+        </div>
         <div>
+            <br />
             <p><strong>${mensaje2}</strong></p>
         </div>
 
@@ -98,6 +107,34 @@ and open the template in the editor.
                 <h6>© CopyRight</h6>
             </div>
         </footer>
+        
+        <script>
+              function archivo(evt) {
+                  var files = evt.target.files; // FileList object
+             
+                  // Obtenemos la imagen del campo "file".
+                  for (var i = 0, f; f = files[i]; i++) {
+                    //Solo admitimos imágenes.
+                    if (!f.type.match('image.*')) {
+                        continue;
+                    }
+             
+                    var reader = new FileReader();
+             
+                    reader.onload = (function(theFile) {
+                        return function(e) {
+                          // Insertamos la imagen
+                         document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
+                        };
+                    })(f);
+             
+                    reader.readAsDataURL(f);
+                  }
+              }
+             
+              document.getElementById('files').addEventListener('change', archivo, false);
+      </script>
+        
     </body>
 
 </html>
