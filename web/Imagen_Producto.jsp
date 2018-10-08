@@ -105,14 +105,14 @@ and open the template in the editor.
                     <tr>
                         <td>Archivo:&nbsp;</td>
                         <td>
-                            <input type="file" id="files" name="files[]" onchange="readURL();" />
+                            <input type="file" id="files" name="files[]" onchange="readURL();"  required/>
                         </td>
                     </tr>
                     <tr>
                         <td>Código del Producto:&nbsp;</td>
                         <td>
                             <input type="text" id="observaciones" name="observaciones"
-                                   size="30" placeholder="Digite aquí el código del producto" />
+                                   size="30" placeholder="Digite aquí el código del producto"  required/>
                         </td>
                     </tr>
                     <tr>
