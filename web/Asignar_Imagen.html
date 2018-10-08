@@ -59,26 +59,7 @@ and open the template in the editor.
         </header>
 
         <div class="container">
-            <img src="img/índice.png" class="img-fluid" alt="Responsive image"/>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <h1>Asignar imagen</h1>
-                    <span>
-                        <label>Codigo de producto:</label>
-                        <input type="text" id="codigoImg">
-                    </span>
-                    <div class="input-group">
-
-                        <span class="input-group-btn">
-                            <span class="btn btn-default btn-file">
-                                Browse… <input type="file" id="imgInp">
-                            </span>
-                        </span>
-                        <input type="text" class="form-control" readonly>
-                    </div>
-                    <img id='img-upload'/>
-                </div>
-            </div>
+            <img src="img/índice.png" class="img-fluid" alt="Responsive image"/>  
         </div>
 
         <!--Pie de Pagina-->
@@ -87,6 +68,31 @@ and open the template in the editor.
                 <h6> Medias Casino </h6>
                 <h6>Contactos:(506)8888-8888</h6>
                 <h6>© CopyRight</h6>
+            </div>
+            
+            <div id="contents">
+                <form id="form1" action="ServicioArchivo" method="POST" enctype="multipart/form-data">
+                    <table class="tablaFormulario">
+                        <tr>
+                            <td>Archivo:&nbsp;</td>
+                            <td>
+                                <input type="file" id="archivo" name="archivo" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Código del Producto:&nbsp;</td>
+                            <td>
+                                <input type="text" id="observaciones" name="observaciones"
+                                       size="30" placeholder="Digite aquí el código del producto" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button type="submit">Enviar</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
             </div>
         </footer>
     </body>
