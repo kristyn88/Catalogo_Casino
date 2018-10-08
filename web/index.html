@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Interfaces</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <!--CSS-->
+        <link href="css/principal.css" rel="stylesheet" type="text/css"/>
+        <!--data table-->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+        <!--JS-->
+        <script src="js/js.js" type="text/javascript"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!--Barra de navegacion-->
+        <nav class="navbar navbar-light" id="encabezadoypie" >
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" >Inicio<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" >Productos<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.jsp">Asignar Imagen<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" >Información<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" >Contacto<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div>
+            <img src="img/índice.png" class="img-fluid" alt="Responsive image"/>
+            <select id="opciones">
+                <option value="agente">Agentes</option>
+                <option value="cliente">Clientes</option>
+                <option value="producto">Productos</option>
+            </select> 
+        </div>
+
+        <!--Agentes-->
+        <div class="panel panel-primary" id="panelAgente">
+            <div class="container">
+                <center>
+                    <div class="panel-heading"><h3>Agentes</h3></div><br><br>
+                </center>
+                <div class="panel-body">
+                    <form>
+                        <div class="row">
+                            <table align="center" class="table table-bordered" id="tablaAgente">
+                                <thead>
+                                    <tr>
+                                        <th style="color: white;"><b>Codigo</b></th>
+                                        <th style="color: white;"><b>Nombre</b></th>
+                                        <th style="color: white;"><b>Zona</b></th>
+                                        <th style="color: white;"><b>Estatus</b></th>
+                                        <th style="color: white;"><b>Telefono</b></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!--Clientes-->
+        <div class="panel panel-primary" id="panelCliente">
+            <div class="container">
+                <center>
+                    <div class="panel-heading"><h3>Clientes</h3></div><br><br>
+                </center>
+                <div class="panel-body">
+                    <form>
+                        <div class="row">
+                            <table align="center" class="table table-bordered" id="tablaCliente">
+                                <thead>
+                                    <tr>
+                                        <th><b>Cliente</b></th>
+                                        <th><b>Vendedor</b></th>
+                                        <th><b>Nombre</b></th>
+                                        <th><b>Poblacion</b></th>
+                                        <th><b>Código</b></th>
+                                        <th><b>Nombre 2</b></th>
+                                        <th><b>Calle</b></th>
+                                        <th><b>Poblacion 2</b></th>
+                                        <th><b>Region</b></th>
+                                        <th><b>Telefono</b></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!--Productos-->
+        <div class="panel panel-primary" id="panelProducto">
+            <div class="container">
+                <center>
+                    <div class="panel-heading"><h3>Productos</h3></div><br><br>
+                </center>
+                <div class="panel-body">
+                    <form>
+                        <div class="row">
+                            <table align="center" class="table table-bordered" id="tablaProducto">
+                                <thead>
+                                    <tr>
+                                        <th><b>Codigo</b></th>
+                                        <th><b>Categoria</b></th>
+                                        <th><b>Material</b></th>
+                                        <th><b>Talla</b></th>
+                                        <th><b>Descripcion</b></th>
+                                        <th><b>Estado</b></th>
+                                        <th><b>Inventario</b></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--Pie de Pagina
+        <footer>
+            <div align="center">
+                <h6> Medias Casino </h6>
+                <h6>Contactos:(506)8888-8888</h6>
+                <h6>© CopyRight</h6>
+            </div>
+        </footer>
+        -->
+    </body>
+    
+</html>

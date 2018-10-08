@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/09/2018 07:56:16 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cr.casino.catalogoCasino.domain.BdcClienteAuxiliar" table="bdc_cliente_auxiliar" catalog="bdc" optimistic-lock="version">
+        <id name="cliente" type="string">
+            <column name="cliente" length="245" />
+            <generator class="assigned" />
+        </id>
+        <property name="vendedor" type="string">
+            <column name="vendedor" length="245" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="245" />
+        </property>
+        <property name="poblacion" type="string">
+            <column name="poblacion" length="245" />
+        </property>
+        <property name="codigo" type="string">
+            <column name="codigo" length="245" />
+        </property>
+        <property name="nombre2" type="string">
+            <column name="nombre2" length="245" />
+        </property>
+        <property name="calle" type="string">
+            <column name="calle" length="245" />
+        </property>
+        <property name="poblacion2" type="string">
+            <column name="poblacion2" length="245" />
+        </property>
+        <property name="region" type="string">
+            <column name="region" length="245" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="245" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/09/2018 07:56:16 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cr.casino.catalogoCasino.domain.BdcProducto" table="bdc_producto" catalog="bdc" optimistic-lock="version">
+        <id name="codigo" type="string">
+            <column name="codigo" length="245" />
+            <generator class="assigned" />
+        </id>
+        <property name="categoria" type="string">
+            <column name="categoria" length="245" />
+        </property>
+        <property name="material" type="string">
+            <column name="material" length="245" />
+        </property>
+        <property name="talla" type="string">
+            <column name="talla" length="245" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="245" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="245" />
+        </property>
+        <property name="inventario" type="string">
+            <column name="inventario" length="245" />
+        </property>
+        <bag name="bdcDetallePedidos" table="bdc_detalle_pedido" inverse="false" lazy="false" fetch="select">
+            <key>
+                <column name="producto" length="245" />
+            </key>
+            <one-to-many class="cr.casino.catalogoCasino.domain.BdcDetallePedido" />
+        </bag>
+    </class>
+</hibernate-mapping>

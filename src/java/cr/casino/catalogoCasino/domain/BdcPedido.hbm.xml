@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/09/2018 07:56:16 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cr.casino.catalogoCasino.domain.BdcPedido" table="bdc_pedido" catalog="bdc" optimistic-lock="version">
+        <id name="codigo" type="string">
+            <column name="codigo" length="245" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="bdcAgente" class="cr.casino.catalogoCasino.domain.BdcAgente" fetch="select" lazy="false">
+            <column name="agente" length="245" />
+        </many-to-one>
+        <many-to-one name="bdcCliente" class="cr.casino.catalogoCasino.domain.BdcCliente" fetch="select" lazy="false">
+            <column name="cliente" length="245" />
+        </many-to-one>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" />
+        </property>
+        <property name="estado" type="java.lang.Integer">
+            <column name="estado" />
+        </property>
+        <bag name="bdcVentas" table="bdc_venta" inverse="false" lazy="false" fetch="select">
+            <key>
+                <column name="pedido" length="245" />
+            </key>
+            <one-to-many class="cr.casino.catalogoCasino.domain.BdcVenta" />
+        </bag>
+        <bag name="bdcReservas" table="bdc_reserva" inverse="false" lazy="false" fetch="select">
+            <key>
+                <column name="pedido" length="245" />
+            </key>
+            <one-to-many class="cr.casino.catalogoCasino.domain.BdcReserva" />
+        </bag>
+        <bag name="bdcDetallePedidos" table="bdc_detalle_pedido" inverse="false" lazy="false" fetch="select">
+            <key>
+                <column name="pedido" length="245" />
+            </key>
+            <one-to-many class="cr.casino.catalogoCasino.domain.BdcDetallePedido" />
+        </bag>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/09/2018 07:56:16 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cr.casino.catalogoCasino.domain.BdcVenta" table="bdc_venta" catalog="bdc" optimistic-lock="version">
+        <id name="codigo" type="string">
+            <column name="codigo" length="245" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="bdcPedido" class="cr.casino.catalogoCasino.domain.BdcPedido" fetch="select" lazy="false">
+            <column name="pedido" length="245" />
+        </many-to-one>
+        <property name="estado" type="java.lang.Integer">
+            <column name="estado" />
+        </property>
+    </class>
+</hibernate-mapping>

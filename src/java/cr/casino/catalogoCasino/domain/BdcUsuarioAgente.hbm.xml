@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/09/2018 07:56:16 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cr.casino.catalogoCasino.domain.BdcUsuarioAgente" table="bdc_usuario_agente" catalog="bdc" optimistic-lock="version">
+        <id name="codigoAgente" type="string">
+            <column name="codigo_Agente" length="245" />
+            <generator class="foreign">
+                <param name="property">bdcAgente</param>
+            </generator>
+        </id>
+        <one-to-one name="bdcAgente" class="cr.casino.catalogoCasino.domain.BdcAgente" constrained="true" lazy="false"></one-to-one>
+        <property name="contrasena" type="string">
+            <column name="contrasena" length="245" />
+        </property>
+    </class>
+</hibernate-mapping>
