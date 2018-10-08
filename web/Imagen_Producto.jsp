@@ -28,14 +28,14 @@ and open the template in the editor.
 
 
         <style>
-          .thumb {
-            height: 300px;
-            border: 1px solid #000;
-            margin: 10px 5px 0 0;
-          }
+            .thumb {
+                height: 300px;
+                border: 1px solid #000;
+                margin: 10px 5px 0 0;
+            }
         </style>
     </head>
-    <body>
+    <body onload="consultarProductos();">
         <header>
             <!--Barra de navegacion-->
             <nav class="navbar navbar-light" id="encabezadoypie" >
@@ -68,6 +68,37 @@ and open the template in the editor.
         <div class="container">
             <img src="img/índice.png" class="img-fluid" alt="Responsive image"/>
         </div>
+        
+        <!--Productos-->
+        <!--
+        <div class="panel panel-primary" id="panelProducto">
+            <div class="container">
+                <center>
+                    <div class="panel-heading"><h3>Productos</h3></div><br><br>
+                </center>
+                <div class="panel-body">
+                    <form>
+                        <div class="row">
+                            <table align="center" class="table table-bordered" id="tablaProducto">
+                                <thead>
+                                    <tr>
+                                        <th><b>Codigo</b></th>
+                                        <th><b>Categoria</b></th>
+                                        <th><b>Material</b></th>
+                                        <th><b>Talla</b></th>
+                                        <th><b>Descripcion</b></th>
+                                        <th><b>Estado</b></th>
+                                        <th><b>Inventario</b></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        -->
         <div id="contents">
             <form id="form1" action="ServicioArchivo" method="POST" enctype="multipart/form-data">
                 <table class="tablaFormulario">
@@ -107,34 +138,34 @@ and open the template in the editor.
                 <h6>© CopyRight</h6>
             </div>
         </footer>
-        
+
         <script>
-              function archivo(evt) {
-                  var files = evt.target.files; // FileList object
-             
-                  // Obtenemos la imagen del campo "file".
-                  for (var i = 0, f; f = files[i]; i++) {
+            function archivo(evt) {
+                var files = evt.target.files; // FileList object
+
+                // Obtenemos la imagen del campo "file".
+                for (var i = 0, f; f = files[i]; i++) {
                     //Solo admitimos imágenes.
                     if (!f.type.match('image.*')) {
                         continue;
                     }
-             
+
                     var reader = new FileReader();
-             
-                    reader.onload = (function(theFile) {
-                        return function(e) {
-                          // Insertamos la imagen
-                         document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
+
+                    reader.onload = (function (theFile) {
+                        return function (e) {
+                            // Insertamos la imagen
+                            document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
                         };
                     })(f);
-             
+
                     reader.readAsDataURL(f);
-                  }
-              }
-             
-              document.getElementById('files').addEventListener('change', archivo, false);
-      </script>
-        
+                }
+            }
+
+            document.getElementById('files').addEventListener('change', archivo, false);
+        </script>
+
     </body>
 
 </html>
