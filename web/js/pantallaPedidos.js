@@ -28,7 +28,7 @@ function dibujarAlbum(dataJson) {
     for (var i = 0; i < dataJson.length; i++) {
         stringProductos = stringProductos + '<div class="col-sm-3">';
         stringProductos = stringProductos +'<div class="card sm-3 shadow-sm">';
-        stringProductos = stringProductos +'<img class="card-img-top" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%;" src="../img/índice.png">';
+        stringProductos = stringProductos +'<img class="card-img-top" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%;" ' + consultarImagen(dataJson[i].codigo) + '>';
         stringProductos = stringProductos +'<div class="card-body">';
         stringProductos = stringProductos +'<p class="card-text">' + dataJson[i].descripcion + '</p>';
         stringProductos = stringProductos +'<div class="d-flex justify-content-between align-items-center">';
@@ -106,6 +106,26 @@ function enviar() {
         },
         success: function (data) {
             dibujarAlbum(data);
+        },
+        type: 'POST',
+        dataType: 'JSON'
+    });
+}
+
+function consultarImagen(id) {
+    //Se envia la información por ajax
+    $.ajax({
+        url: "../PantallaPedidosServlet",
+        data: {
+            accion: "consultarImagen", 
+            id: id
+        },
+        error: function () {
+            alert("Se presento un error, contactar al administador");
+        },
+        success: function (data) {
+            var imagen = 'src="img/' + data.imagen + '"';
+            return imagen;
         },
         type: 'POST',
         dataType: 'JSON'

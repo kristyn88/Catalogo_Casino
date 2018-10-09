@@ -59,7 +59,16 @@ public class ServicioArchivo extends HttpServlet {
             // de la aplicación es accesible, en la carpeta 'build/web'.
             // Sin embargo, cuando se instala la aplicación en un entorno de
             // producción, es posible que no exista un acceso válido al directorio.}
-            String rutaDescarga = getServletContext().getRealPath("") + File.separator + DIRECTORIO;
+            //String rutaDescarga = getServletContext().getRealPath("") + File.separator + DIRECTORIO;
+            String rutaDescarga = "C:"+File.separator
+                    + "Users"+File.separator
+                    + "krist"+File.separator
+                    + "OneDrive"+File.separator
+                    + "Documentos"+File.separator
+                    + "NetBeansProjects"+File.separator
+                    + "Imagenes_Glass"+File.separator
+                    + "web"+File.separator
+                    + "img";
             File directorioDescarga = new File(rutaDescarga);
             if (!directorioDescarga.exists()) {
                 directorioDescarga.mkdir();
@@ -74,11 +83,12 @@ public class ServicioArchivo extends HttpServlet {
                 BdcProductoBL pBL = new BdcProductoBL();
                 nuevo = pBL.findById(v);
                 String rutaArchivo=null;
+                String nombreArchivo=null;
                 if (formItems != null && formItems.size() > 0) {
                     for (FileItem item : formItems) {
                         if (!item.isFormField()) {
 
-                            String nombreArchivo = new File(item.getName()).getName();
+                            nombreArchivo = new File(item.getName()).getName();
                             if (nombreArchivo.isEmpty()) {
                                 request.setAttribute("mensaje",
                                         "Se omitió la selección del archivo.");
@@ -113,7 +123,7 @@ public class ServicioArchivo extends HttpServlet {
                                         String.format("El archivo '%s' fue cargado con éxito.", valor));
                                 
                                 BdcImgProductoBL imgC = new BdcImgProductoBL();
-                                BdcImgProducto img = new BdcImgProducto(nuevo, rutaArchivo);
+                                BdcImgProducto img = new BdcImgProducto(nuevo, nombreArchivo);
                                 imgC.save(img);
                             } else {
                                 request.setAttribute("mensaje2",

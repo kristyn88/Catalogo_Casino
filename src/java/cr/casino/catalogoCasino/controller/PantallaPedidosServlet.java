@@ -7,8 +7,10 @@ package cr.casino.catalogoCasino.controller;
 
 import com.google.gson.Gson;
 import cr.casino.catalogoCasino.bl.impl.BdcAgenteBL;
+import cr.casino.catalogoCasino.bl.impl.BdcImgProductoBL;
 import cr.casino.catalogoCasino.bl.impl.BdcProductoBL;
 import cr.casino.catalogoCasino.domain.BdcAgente;
+import cr.casino.catalogoCasino.domain.BdcImgProducto;
 import cr.casino.catalogoCasino.domain.BdcProducto;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -44,9 +46,18 @@ public class PantallaPedidosServlet extends HttpServlet {
             BdcProducto p = new BdcProducto();
             BdcProductoBL pBL = new BdcProductoBL();
             BdcAgenteBL aBL = new BdcAgenteBL();
+            BdcImgProductoBL imgBL = new BdcImgProductoBL();
+            BdcImgProducto imgP = new BdcImgProducto();
 
             String accion = request.getParameter("accion");
             switch (accion) {
+                case "consultarImagen":
+                    String id = request.getParameter("id");
+                    imgP = imgBL.findById(request.getParameter("id"));
+                    json = new Gson().toJson(imgP);
+                    out.print(json);
+                    break;
+                    
                 case "consultarProductos":
                     String categoria = request.getParameter("categoria");
                     String txtBusqueda = request.getParameter("txtBusqueda");
