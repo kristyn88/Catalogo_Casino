@@ -16,6 +16,10 @@
         <servlet-name>ServicioArchivo</servlet-name>
         <servlet-class>servicio.ServicioArchivo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PantallaPedidosServlet</servlet-name>
+        <servlet-class>cr.casino.catalogoCasino.controller.PantallaPedidosServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AgenteListServlet</servlet-name>
         <url-pattern>/AgenteListServlet</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>ServicioArchivo</servlet-name>
         <url-pattern>/ServicioArchivo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PantallaPedidosServlet</servlet-name>
+        <url-pattern>/PantallaPedidosServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
